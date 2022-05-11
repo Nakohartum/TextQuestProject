@@ -15,6 +15,7 @@ namespace TextProject.UI
             _view = view;
             _playerProfile = playerProfile;
             AddGameObject(_view.gameObject);
+            InitViewButtons();
         }
 
         private void InitViewButtons()

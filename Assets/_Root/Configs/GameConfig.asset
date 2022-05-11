@@ -17,4 +17,9 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  <GameViewPrefab>k__BackingField:
+    m_AssetGUID: 84e945c89bc61f4408f5456e61b81947
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   <InitialState>k__BackingField: 2

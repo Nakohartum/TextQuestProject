@@ -24,30 +24,21 @@ namespace TextProject.UI
 
         public MainMenuController CreateMenu(PlayerProfile playerProfile)
         {
-            AsyncOperationHandle<GameObject> addressable = Addressables.LoadAssetAsync<GameObject>(_mainMenuPrefab);
-            addressable.Completed += SetMainMenu;
-            addressable.WaitForCompletion();
-            Object.Instantiate(MainMenuView.gameObject, _placeForUI);
+            if (_addressablePrefabs.Count == 0)
+            {
+                AsyncOperationHandle<GameObject> addressable = Addressables.LoadAssetAsync<GameObject>(_mainMenuPrefab);
+                addressable.Completed += SetMainMenu;
+                addressable.WaitForCompletion();
+            }
             MainMenuController = new MainMenuController(MainMenuView, playerProfile);
-            MainMenuController.OnDestroy += OnDestroy;
             return MainMenuController;
         }
-
-        private void OnDestroy()
-        {
-            MainMenuController.OnDestroy -= OnDestroy;
-            foreach (var prefab in _addressablePrefabs)
-            {
-                Addressables.Release(prefab);
-            }
-            _addressablePrefabs.Clear();
-        }
-
-
+        
         private  void SetMainMenu(AsyncOperationHandle<GameObject> obj)
         {
             _addressablePrefabs.Add(obj);
-            MainMenuView = obj.Result.GetComponent<MainMenuView>();
+            var go = Object.Instantiate(obj.Result, _placeForUI);
+            MainMenuView = go.GetComponent<MainMenuView>();
         }
     }
 }

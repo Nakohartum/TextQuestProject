@@ -8,6 +8,7 @@ namespace TextProject.ConfigsScripts
     public class GameConfig : ScriptableObject
     {
         [field: SerializeField] public AssetReference MainMenuPrefab { get; private set; }
+        [field: SerializeField] public AssetReference GameViewPrefab { get; private set; }
         [field: SerializeField] public GameState InitialState { get; private set; }
     }
 }
