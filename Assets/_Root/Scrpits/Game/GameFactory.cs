@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TextProject.Player;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Object = UnityEngine.Object;
 
 namespace TextProject.Game
 {
-    public class GameFactory
+    public class GameFactory : IDisposable
     {
         private AssetReference _gameViewReference;
         private Transform _placeForUI;
@@ -38,6 +40,15 @@ namespace TextProject.Game
         {
             var go = Object.Instantiate(obj.Result, _placeForUI);
             _gameView = go.GetComponent<GameView>();
+        }
+        
+        public void Dispose()
+        {
+            foreach (var asyncOperationHandle in _addressablesPrefabs)
+            {
+                Addressables.Release(asyncOperationHandle);
+            }
+            _addressablesPrefabs.Clear();
         }
     }
 }

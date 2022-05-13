@@ -32,9 +32,15 @@ namespace TextProject
         {
             base.OnDispose();
             DisposeAllControllers();
+            DisposeAllFactories();
             _playerProfile.CurrentState.UnsubscribeFromChange(ChangeCurrentState);
         }
 
+        private void DisposeAllFactories()
+        {
+            _gameFactory?.Dispose();
+            _mainMenuFactory?.Dispose();
+        }
         private void DisposeAllControllers()
         {
             _mainMenuController?.Dispose();

@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TextProject.Player;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Object = UnityEngine.Object;
 
 namespace TextProject.UI
 {
-    public class MainMenuFactory
+    public class MainMenuFactory : IDisposable
     {
         private Transform _placeForUI;
         private AssetReference _mainMenuPrefab;
@@ -39,6 +41,15 @@ namespace TextProject.UI
             _addressablePrefabs.Add(obj);
             var go = Object.Instantiate(obj.Result, _placeForUI);
             MainMenuView = go.GetComponent<MainMenuView>();
+        }
+
+        public void Dispose()
+        {
+            foreach (var asyncOperationHandle in _addressablePrefabs)
+            {
+                Addressables.Release(asyncOperationHandle);
+            }
+            _addressablePrefabs.Clear();
         }
     }
 }
