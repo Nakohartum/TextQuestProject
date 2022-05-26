@@ -1,4 +1,5 @@
-﻿using TextProject.Utils;
+﻿using System.Collections.Generic;
+using TextProject.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -9,6 +10,7 @@ namespace TextProject.ConfigsScripts
     {
         [field: SerializeField] public AssetReference MainMenuPrefab { get; private set; }
         [field: SerializeField] public AssetReference GameViewPrefab { get; private set; }
+        [field: SerializeField] public TextConfig InitialConfig { get; private set; }
         [field: SerializeField] public GameState InitialState { get; private set; }
     }
 }

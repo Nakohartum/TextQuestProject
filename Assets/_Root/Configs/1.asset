@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea52342e42d448b9e8bca8b9db1cfe3, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  <ID>k__BackingField: 1
+  <TextQuotes>k__BackingField:
+  - <Interference> Damn...that's... DA... come on... Step... at the me... w... with
+    uh... thing... you can... motre...?
+  - <static> me to... <static> hear anything...?
+  <ButtonsToChoose>k__BackingField:
+  - {fileID: 11400000, guid: 24c1143da7d0bf44fba10ada44d243e1, type: 2}
+  - {fileID: 11400000, guid: 015317af435f7c84ba13d8d5dfb62ed2, type: 2}

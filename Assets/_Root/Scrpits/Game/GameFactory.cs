@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TextProject.ConfigsScripts;
 using TextProject.Player;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -11,14 +12,16 @@ namespace TextProject.Game
     public class GameFactory : IDisposable
     {
         private AssetReference _gameViewReference;
+        private readonly GameConfig _gameConfig;
         private Transform _placeForUI;
         private GameView _gameView;
         private List<AsyncOperationHandle<GameObject>> _addressablesPrefabs =
             new List<AsyncOperationHandle<GameObject>>();
         public GameController GameController { get; private set; }
-        public GameFactory(AssetReference gameViewReference, Transform placeForUI)
+        public GameFactory(GameConfig gameConfig, Transform placeForUI)
         {
-            _gameViewReference = gameViewReference;
+            _gameViewReference = gameConfig.GameViewPrefab;
+            _gameConfig = gameConfig;
             _placeForUI = placeForUI;
         }
 
@@ -32,7 +35,7 @@ namespace TextProject.Game
                 addressable.WaitForCompletion();
             }
 
-            GameController = new GameController(playerProfile, _placeForUI, _gameView);
+            GameController = new GameController(playerProfile, _placeForUI, _gameView, _gameConfig.InitialConfig);
             return GameController;
         }
 

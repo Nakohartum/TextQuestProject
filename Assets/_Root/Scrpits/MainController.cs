@@ -23,7 +23,7 @@ namespace TextProject
             _gameConfig = gameConfig;
             _playerProfile = playerProfile;
             _mainMenuFactory = new MainMenuFactory(_placeForUI, _gameConfig.MainMenuPrefab);
-            _gameFactory = new GameFactory(_gameConfig.GameViewPrefab, _placeForUI);
+            _gameFactory = new GameFactory(_gameConfig, _placeForUI);
             _playerProfile.CurrentState.SubscribeOnChange(ChangeCurrentState);
             ChangeCurrentState(_playerProfile.CurrentState.Value);
         }

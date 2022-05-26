@@ -22,4 +22,5 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  <InitialConfig>k__BackingField: {fileID: 11400000, guid: df619115eec6ec540ae864ade3f85578, type: 2}
   <InitialState>k__BackingField: 2

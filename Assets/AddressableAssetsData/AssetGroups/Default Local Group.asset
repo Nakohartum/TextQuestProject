@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Assets/_Root/Prefabs/GamePathView.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 77e0785426ef81d499f12ba06df399df
+    m_Address: Assets/_Root/Configs/TextConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 23e52de37b5139e49a29280f25573cd4, type: 2}
   m_SchemaSet:

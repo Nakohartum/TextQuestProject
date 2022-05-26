@@ -11,7 +11,7 @@ namespace TextProject.Game
         [field: Header("Pool for text")] 
         [field: SerializeField] public SuperScrollRect PoolOfObjects { get; private set; }
         [field: SerializeField] public int CountObjects { get; set; }
-        [field: SerializeField] public Button Button { get; private set; }
+        [field: SerializeField] public ChoosingButtons[] Buttons { get; private set; }
         
     }
 }
